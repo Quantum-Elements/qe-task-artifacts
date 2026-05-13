@@ -19,3 +19,21 @@ classifiers = [
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pylint."messages control"]
+# `format=` is part of the public ArtifactWriter API; we can't rename it.
+# `...` is idiomatic in Protocol method bodies.
+# `_accepts_artifacts` is an intentional cross-module marker for the
+# `supports_artifacts()` detector; suppress the protected-access warning.
+# Noop / accepts_artifacts wrappers intentionally ignore their arguments.
+# Module/class/function docstrings are not required throughout this small
+# interface package or its tests.
+disable = [
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "redefined-builtin",
+    "unnecessary-ellipsis",
+    "protected-access",
+    "unused-argument",
+]

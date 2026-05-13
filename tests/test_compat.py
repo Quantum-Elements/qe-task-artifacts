@@ -52,7 +52,7 @@ class CompatTests(unittest.TestCase):
 
         self.assertTrue(supports_artifacts(old_fn))
         self.assertEqual(
-            old_fn({"x": 1}, artifacts=NoopArtifactWriter()),
+            old_fn({"x": 1}, artifacts=NoopArtifactWriter()),  # pylint: disable=unexpected-keyword-arg
             {"x": 1},
         )
 
